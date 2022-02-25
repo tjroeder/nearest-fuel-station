@@ -1,0 +1,14 @@
+<h1>Nearest Charger to <%= @location %></h1>
+
+<h2>Charger Info:</h2>
+<p>Name: <%= @charger.first.name %></p>
+<p>Address: <%= @charger.first.full_address %></p>
+<p>Fuel Type: <%= @charger.first.fuel_type %></p>
+<p>Access Times: <%= @charger.first.access_times %></p>
+<p>Distance to charger: <%= @charger.first.distance.round(1) %> mi.</p>
+<p>Travel time to charger: <%= distance_of_time_in_words(@charger.last.time) %></p>
+
+<h2>Route to Charger:</h2>
+<% @charger.last.directions.each do |direction| %>
+  <p><%= direction %></p>
+<% end %>
